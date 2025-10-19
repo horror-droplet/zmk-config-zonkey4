@@ -55,9 +55,9 @@
 
             bindings = <
 &kp Q           &kp W         &kp E         &kp R             &kp T                                                   &kp Y      &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D         &lt 6 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &kp SEMICOLON
+&kp A           &kp S         &kp D         &lt 6 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 3 SEMICOLON
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C             &kp V             &lt 4 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 LANGUAGE_1  &lt 2 LANGUAGE_2  &lt 1 SPACE                           &kp SPACE  &kp ENTER                                     &kp DEL
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 LANGUAGE_1  &lt 2 LANGUAGE_2  &lt 1 SPACE                           &kp SPACE  &kp ENTER                                       &kp DEL
             >;
 
             sensor-bindings =
@@ -107,10 +107,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &kp UP_ARROW    &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans          &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                                             &trans
+&kp F1  &kp F2  &kp F3   &kp F4   &kp F5                     &trans  &kp BACKSPACE  &kp UP_ARROW    &kp DELETE       &trans
+&kp F6  &kp F7  &kp F8   &trans   &trans   &trans    &trans  &trans  &kp LEFT       &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &trans  &trans         &trans          &trans           &trans
+&trans  &trans  &trans   &trans   &trans   &trans            &trans  &trans                                                  &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
