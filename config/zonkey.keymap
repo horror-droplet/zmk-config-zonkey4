@@ -164,7 +164,7 @@
         mac_layer_0 {
             bindings = <
 &kp Q           &kp W         &kp E             &kp R              &kp T                                                   &kp Y      &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D             &lt 6 F            &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 3 SEMICOLON
+&kp A           &kp S         &kp D             &lt 11 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 3 SEMICOLON
 &kp LEFT_SHIFT  &kp Z         &kp X             &kp C              &kp V             &lt 4 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_ALT  &kp LEFT_COMMAND  &lt 10 LANGUAGE_1  &lt 9 LANGUAGE_2  &lt 8 SPACE                           &kp SPACE  &kp ENTER                                       &kp DEL
             >;
