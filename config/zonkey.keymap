@@ -206,5 +206,16 @@
 
             sensor-bindings = <&scroll_up_down>;
         };
+
+        mac_mouse_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans                  &kp LS(LC(TAB))        &kp LC(TAB)  &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)             &mkp MB1               &mkp MB3     &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)    &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LA(LEFT_ARROW))  &kp LG(LA(RIGHT))                                      &kp LG(D)
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
     };
 };
