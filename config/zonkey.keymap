@@ -120,10 +120,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp F1  &kp F2  &kp F3   &kp F4   &kp F5                     &trans  &kp BACKSPACE  &kp UP_ARROW    &kp DELETE       &trans
-&kp F6  &kp F7  &kp F8   &trans   &trans   &trans    &trans  &trans  &kp LEFT       &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &trans  &trans         &trans          &trans           &trans
-&trans  &trans  &trans   &trans   &trans   &trans            &trans  &trans                                                  &trans
+&kp F1  &kp F2  &kp F3   &kp F4   &kp F5                     &trans         &kp BACKSPACE  &kp UP_ARROW    &kp DELETE       &trans
+&kp F6  &kp F7  &kp F8   &trans   &trans   &trans    &trans  &trans         &kp LEFT       &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &trans         &trans         &trans          &trans           &trans
+&trans  &trans  &trans   &trans   &trans   &trans            &kp BACKSPACE  &kp DEL                                                 &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
