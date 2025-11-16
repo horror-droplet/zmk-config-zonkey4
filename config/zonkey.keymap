@@ -278,7 +278,7 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1       &kp MB3   &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &kp MB1       &kp MB3   &kp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)  &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                              &kp LG(D)
             >;
@@ -293,7 +293,7 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1       &kp MB3   &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &kp MB1       &kp MB3   &kp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT)  &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                              &kp LG(D)
             >;
@@ -312,7 +312,7 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(T)  &kp LG(W)
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &mkp MB1               &kp MB3      &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &kp MB1               &kp MB3      &kp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
             >;
@@ -327,7 +327,7 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(T)  &kp LG(W)
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)           &mkp MB1               &kp MB3      &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)           &kp MB1               &kp MB3      &kp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
             >;
