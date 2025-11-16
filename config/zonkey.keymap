@@ -42,12 +42,12 @@
 
         bt_0_win: bt_0_win {
             compatible = "zmk,behavior-macro";
-            wait-ms = <10>;
+            wait-ms = <100>;
             tap-ms = <10>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 0>
-                , <&macro_pause_for_release>
+                , <&macro_wait_time 500>
                 , <&macro_tap &to 0>
                 ;
             label = "BT0_WIN";
@@ -55,12 +55,12 @@
 
         bt_1_win: bt_1_win {
             compatible = "zmk,behavior-macro";
-            wait-ms = <10>;
+            wait-ms = <100>;
             tap-ms = <10>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 1>
-                , <&macro_pause_for_release>
+                , <&macro_wait_time 500>
                 , <&macro_tap &to 0>
                 ;
             label = "BT1_WIN";
@@ -68,12 +68,12 @@
 
         bt_2_win: bt_2_win {
             compatible = "zmk,behavior-macro";
-            wait-ms = <10>;
+            wait-ms = <100>;
             tap-ms = <10>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 2>
-                , <&macro_pause_for_release>
+                , <&macro_wait_time 500>
                 , <&macro_tap &to 0>
                 ;
             label = "BT2_WIN";
@@ -81,12 +81,12 @@
 
         bt_3_win: bt_3_win {
             compatible = "zmk,behavior-macro";
-            wait-ms = <10>;
+            wait-ms = <100>;
             tap-ms = <10>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 3>
-                , <&macro_pause_for_release>
+                , <&macro_wait_time 500>
                 , <&macro_tap &to 0>
                 ;
             label = "BT3_WIN";
@@ -94,12 +94,12 @@
 
         bt_4_mac: bt_4_mac {
             compatible = "zmk,behavior-macro";
-            wait-ms = <10>;
+            wait-ms = <100>;
             tap-ms = <10>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_SEL 4>
-                , <&macro_pause_for_release>
+                , <&macro_wait_time 500>
                 , <&macro_tap &to 1>
                 ;
             label = "BT4_MAC";
@@ -251,13 +251,13 @@
             // -----------------------------------------------------------------------------------------
             // Bluetooth設定・OS切り替えレイヤー
             // 接続先自動切り替え: BT0-BT3=Windows, BT4=Mac
-            // | BT0(Win) | BT1(Win) | BT2(Win) | BT3(Win) | BT4(Mac) |                |     |     |     |     |      |
+            // | BT0(Win) | BT1(Win) | BT2(Win) | BT3(Win) | BT4(Mac) |                | to 0 | to 1|     |     |      | ← テスト用
             // |  BT_CLR  |BT_CLR_ALL|          |          |          |     |      |     |     |     |     |     |      |
             // |  SHIFT   |          |          |          |          |     |           |     |     |     |     |     |      |
             // |  CTRL    |   WIN    |   ALT    | HENKAN   |  SPACE   |MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt_0_win     &bt_1_win       &bt_2_win      &bt_3_win     &bt_4_mac                       &trans  &trans  &trans  &trans  &trans
+&bt_0_win     &bt_1_win       &bt_2_win      &bt_3_win     &bt_4_mac                       &to 0  &to 1  &trans  &trans  &trans
 &bt BT_CLR    &bt BT_CLR_ALL  &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans            &trans  &trans                          &trans
