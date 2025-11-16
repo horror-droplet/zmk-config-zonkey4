@@ -217,7 +217,7 @@
 &trans  &trans  &trans  &trans  &trans                    &trans                 &kp LS(LG(TAB))        &kp LG(TAB)           &kp LG(W)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                 &mkp MB1               &mkp MB3              &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -231,7 +231,7 @@
 &trans  &trans  &trans  &trans  &trans                    &trans                 &kp LS(LG(TAB))        &kp LG(TAB)           &kp LG(W)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)            &mkp MB1               &mkp MB3              &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
