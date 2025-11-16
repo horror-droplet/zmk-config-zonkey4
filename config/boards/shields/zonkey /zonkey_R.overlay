@@ -55,11 +55,10 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        // automouseはLayer 7 (WIN_MOUSE)を使用
-        // MacモードではConditional LayersでLayer 9に自動切り替え
-        automouse-layer = <7>;
-        // スクロールレイヤー: 6=WIN_SCROLL, 8=MAC_SCROLL
-        scroll-layers = <6 8>;
+        // automouseはLayer 6 (MOUSE)を使用
+        automouse-layer = <6>;
+        // スクロールレイヤー: Layer 5 (SCROLL)
+        scroll-layers = <5>;
 
     };
 };
