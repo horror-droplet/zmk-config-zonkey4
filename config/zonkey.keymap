@@ -68,15 +68,14 @@
 
         win_layer_0 {
             // -----------------------------------------------------------------------------------------
-            // Hキー長押しでLayer 10（ショートカット）にアクセス可能
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
-            // |  A  |  S  |  D  |  F  |  G  |LS(LG(S))|        　 | - |lt10H|  J   |  K  |  L  |  `  |
+            // |  A  |  S  |  D  |  F  |  G  |LS(LG(S))|        　 | - |  H  |  J   |  K  |  L  |  `  |
             // |SHIFT|  Z  |  X  |  C  |  V  |  B  |           | ; |  N  |  M   |  ,  |  .  |  /  |
             // | CTRL | WIN | ALT |HENKAN|SPACE|MUHENKAN|       | BS | ENT |      　　　　       | DEL |
 
             bindings = <
 &kp Q           &kp W         &kp E         &kp R             &kp T                                                   &kp Y      &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D         &lt 6 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &lt 10 H   &kp J      &kp K      &kp L    &lt 3 SEMICOLON
+&kp A           &kp S         &kp D         &lt 6 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 3 SEMICOLON
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C             &kp V             &lt 4 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 LANGUAGE_2  &lt 2 LANGUAGE_1  &lt 1 SPACE                           &kp SPACE  &kp ENTER                                       &kp DEL
             >;
@@ -189,15 +188,14 @@
             // Mac用ベースレイヤー
             // モディファイアキー配置: 左下から Control、Option (Alt)、Command (GUI)
             // F/Gキーは透過にして、レイヤー0のレイヤータップを使用
-            // Hキー長押しでLayer 10（ショートカット）にアクセス
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
-            // |  A  |  S  |  D  |trans|trans|LS(LG(S))|        　 | - |lt10H|  J   |  K  |  L  |trans|
+            // |  A  |  S  |  D  |trans|trans|LS(LG(S))|        　 | - |  H  |  J   |  K  |  L  |trans|
             // |SHIFT|  Z  |  X  |  C  |  V  |trans |           | ; |  N  |  M   |  ,  |  .  |  /  |
             // | CTRL | OPT | CMD |trans|trans|trans|       | BS | ENT |      　　　　       | DEL |
 
             bindings = <
 &kp Q           &kp W        &kp E           &kp R     &kp T                                                &kp Y      &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S        &kp D           &trans    &trans         &kp LS(LG(S))    &kp INTERNATIONAL_4  &lt 10 H   &kp J      &kp K      &kp L    &trans
+&kp A           &kp S        &kp D           &trans    &trans         &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &trans
 &kp LEFT_SHIFT  &kp Z        &kp X           &kp C     &kp V          &trans           &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_ALT &kp LEFT_GUI    &trans    &trans         &trans                                &trans     &trans                                          &trans
             >;
@@ -234,46 +232,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)            &mkp MB1               &mkp MB3              &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        MAC_SHORTCUTS {
-            // -----------------------------------------------------------------------------------------
-            // Mac用ショートカットレイヤー (Layer 10)
-            // Hキー長押しでアクセス（Macモード時）
-            // トラックボール操作中でも、Hキーを長押しすればショートカットが使える
-            // |     |     |     |     |     |                     |     |S+C+TAB|C+TAB| C+W |     |
-            // |     |     |     |     |     |     |           |    |     |  MB1 | MB3 | MB2 |     |
-            // |     |     |     |     |     |     |           |    | C+[ |  C+] |     |     |     |
-            // |     |     |     |     |     |     |           | C+L | C+R |                  | F11 |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans                 &kp LS(LG(TAB))        &kp LG(TAB)           &kp LG(W)  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                 &mkp MB1               &mkp MB3              &mkp MB2   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        WIN_SHORTCUTS {
-            // -----------------------------------------------------------------------------------------
-            // Windows用ショートカットレイヤー (Layer 11)
-            // 将来的にWindowsモード時の専用ショートカットとして使用可能
-            // 現在はLayer 10と同様の配置（CtrlベースのWindows用）
-            // |     |     |     |     |     |                     |     |S+C+TAB|C+TAB| C+W |     |
-            // |     |     |     |     |     |     |           |    |     |  MB1 | MB3 | MB2 |     |
-            // |     |     |     |     |     |     |           |    | A+← | A+→ |     |     |     |
-            // |     |     |     |     |     |     |           | W+← | W+→ |                  | W+D |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans              &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(W)  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1         &mkp MB3     &mkp MB2   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
             >;
 
             sensor-bindings = <&scroll_up_down>;
