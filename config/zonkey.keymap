@@ -110,13 +110,13 @@
         compatible = "zmk,conditional-layers";
 
         // Mac使用時の自動レイヤー切り替え
-        mac_scroll {
+        mac_scroll_cond {
             // MACベース(1) + Windowsスクロール(6) → Macスクロール(8)
             if-layers = <1 6>;
             then-layer = <8>;
         };
 
-        mac_mouse {
+        mac_mouse_cond {
             // MACベース(1) + Windowsマウス(7) → Macマウス(9)
             if-layers = <1 7>;
             then-layer = <9>;
@@ -146,7 +146,7 @@
         compatible = "zmk,keymap";
 
         // Layer 0 (WIN_BASE): Windows ベースレイヤー
-        win_base {
+        win-base {
             // -----------------------------------------------------------------------------------------
             // Windows用の基本レイヤー（デフォルト）
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
@@ -167,7 +167,7 @@
         };
 
         // Layer 1 (MAC_BASE): Mac ベースレイヤー
-        mac_base {
+        mac-base {
             // -----------------------------------------------------------------------------------------
             // Mac用の基本レイヤー（BT4で自動切り替え）
             // モディファイアキー配置: 左下から Control、Option (Alt)、Command (GUI)
@@ -267,7 +267,7 @@
         };
 
         // Layer 6 (WIN_SCROLL): Windows スクロールレイヤー
-        win_scroll {
+        win-scroll {
             // -----------------------------------------------------------------------------------------
             // Windows用スクロール・タブ操作レイヤー
             // ショートカット（U, I, O）は透過にして、Mac用はLayer 8で対応
@@ -287,7 +287,7 @@
         };
 
         // Layer 7 (WIN_MOUSE): Windows マウスレイヤー
-        win_mouse {
+        win-mouse {
             // -----------------------------------------------------------------------------------------
             // Windows用マウスレイヤー (automouse自動起動)
 
@@ -302,7 +302,7 @@
         };
 
         // Layer 8 (MAC_SCROLL): Mac スクロールレイヤー
-        mac_scroll {
+        mac-scroll {
             // -----------------------------------------------------------------------------------------
             // Mac用スクロール・タブ操作レイヤー (Conditional Layer: MAC_BASE + WIN_SCROLL)
             // |  8  |     |     |     |     |                     |     |     |     |     |      | ← テスト用: MAC_SCROLLアクティブなら「8」が出力される
@@ -321,7 +321,7 @@
         };
 
         // Layer 9 (MAC_MOUSE): Mac マウスレイヤー
-        mac_mouse {
+        mac-mouse {
             // -----------------------------------------------------------------------------------------
             // Mac用マウスレイヤー (Conditional Layer: MAC_BASE + WIN_MOUSE)
 
