@@ -172,13 +172,13 @@
             // Mac用の基本レイヤー（BT4で自動切り替え）
             // モディファイアキー配置: 左下から Control、Option (Alt)、Command (GUI)
             // 全てのキーを定義し、Layer 0に依存しない
-            // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  1  | ← テスト用: MAC_BASEアクティブなら「1」が出力される
+            // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
             // |  A  |  S  |  D  | lt7F| lt6G|LS(LG(S))|        　 | - |  H  |  J   |  K  |  L  | lt4;|
             // |SHIFT|  Z  |  X  |  C  |  V  | lt5B|           | ; |  N  |  M   |  ,  |  .  |  /  |
             // | CTRL | OPT | CMD |lt4変換|lt3無変換|lt2SPC|       | SPC | ENT |      　　　　       | DEL |
 
             bindings = <
-&kp Q           &kp W         &kp E         &kp R       &kp T                                         &kp Y      &kp U      &kp I      &kp O    &kp NUMBER_1
+&kp Q           &kp W         &kp E         &kp R       &kp T                                         &kp Y      &kp U      &kp I      &kp O    &kp P
 &kp A           &kp S         &kp D         &lt 7 F     &lt 6 G      &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 4 SEMICOLON
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C       &kp V        &lt 5 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_ALT  &kp LEFT_GUI  &lt 4 LANGUAGE_2  &lt 3 LANGUAGE_1  &lt 2 SPACE                           &kp SPACE  &kp ENTER                                       &kp DEL
@@ -251,13 +251,13 @@
             // -----------------------------------------------------------------------------------------
             // Bluetooth設定・OS切り替えレイヤー
             // 接続先自動切り替え: BT0-BT3=Windows, BT4=Mac
-            // | BT0(Win) | BT1(Win) | BT2(Win) | BT3(Win) | BT4(Mac) |                | to 0 | to 1|     |     |      | ← テスト用
+            // | BT0(Win) | BT1(Win) | BT2(Win) | BT3(Win) | BT4(Mac) |                |     |     |     |     |      |
             // |  BT_CLR  |BT_CLR_ALL|          |          |          |     |      |     |     |     |     |     |      |
             // |  SHIFT   |          |          |          |          |     |           |     |     |     |     |     |      |
             // |  CTRL    |   WIN    |   ALT    | HENKAN   |  SPACE   |MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt_0_win     &bt_1_win       &bt_2_win      &bt_3_win     &bt_4_mac                       &to 0  &to 1  &trans  &trans  &trans
+&bt_0_win     &bt_1_win       &bt_2_win      &bt_3_win     &bt_4_mac                       &trans  &trans  &trans  &trans  &trans
 &bt BT_CLR    &bt BT_CLR_ALL  &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans            &trans  &trans                          &trans
@@ -271,13 +271,13 @@
             // -----------------------------------------------------------------------------------------
             // Windows用スクロール・タブ操作レイヤー
             // ショートカット（U, I, O）は透過にして、Mac用はLayer 8で対応
-            // |  6  |     |     |     |     |                     |     |     |     |     |      | ← テスト用: WIN_SCROLLアクティブなら「6」が出力される
+            // |      |     |     |     |     |                     |     |     |     |     |      |
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |     |      |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&kp NUMBER_6  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1       &mkp MB3  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)  &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                              &kp LG(D)
@@ -305,13 +305,13 @@
         mac-scroll {
             // -----------------------------------------------------------------------------------------
             // Mac用スクロール・タブ操作レイヤー (Conditional Layer: MAC_BASE + WIN_SCROLL)
-            // |  8  |     |     |     |     |                     |     |     |     |     |      | ← テスト用: MAC_SCROLLアクティブなら「8」が出力される
+            // |      |     |     |     |     |                     |     | U: Tab切替| I: タブ閉じ| O: 新規タブ|      |
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
             // | CTRL| CMD | OPT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | F11 |
 
             bindings = <
-&kp NUMBER_8  &trans  &trans  &trans  &trans                    &trans                &kp LS(LG(TAB))        &kp LG(TAB)  &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans                &kp LG(TAB)        &kp LG(W)  &kp LG(T)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &mkp MB1               &mkp MB3     &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
@@ -326,7 +326,7 @@
             // Mac用マウスレイヤー (Conditional Layer: MAC_BASE + WIN_MOUSE)
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans                &kp LS(LG(TAB))        &kp LG(TAB)  &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans                &kp LG(TAB)        &kp LG(W)  &kp LG(T)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)           &mkp MB1               &mkp MB3     &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
