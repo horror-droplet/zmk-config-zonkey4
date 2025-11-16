@@ -329,7 +329,138 @@ zmk-config-zonkey4/
 ### エンコーダー機能変更
 `zonkey.keymap`の各レイヤーの`sensor-bindings`を編集
 
+## 開発時の注意事項（重要）
+
+### ZMKバージョン管理
+
+**❌ 間違い:**
+```yaml
+# west.yml
+revision: v3.5.0  # このバージョンタグは存在しない！
+revision: main    # 最新版はAPI変更でビルドエラーの可能性
+```
+
+**✅ 正しい:**
+```yaml
+# west.yml
+revision: v0.2.1  # 2025年3月の安定版
+revision: v0.3.0  # 2025年8月の最新安定版
+```
+
+- ZMKのバージョンタグは`v0.x.x`形式（`v3.x.x`ではない）
+- `main`ブランチは最新だがAPI変更でビルドエラーが出る可能性がある
+- 安定版タグを使用すること（`v0.2.1`, `v0.3.0`など）
+
+### PMW3610ドライバーの互換性
+
+**問題**: ZMK mainブランチとPMW3610ドライバーのAPI非互換
+```
+error: too few arguments to function 'zmk_keymap_layer_activate'
+```
+
+**解決策**:
+1. **ZMKを安定版に固定** (`v0.2.1`など)
+2. **inorichi/zmk-pmw3610-driver**を使用（automouse、scroll対応）
+3. badjeff版は最新API対応だが設定が複雑（`evt-type`など必要）
+
+**現在の安定構成**:
+```yaml
+# west.yml
+- name: zmk
+  remote: zmkfirmware
+  revision: v0.2.1
+- name: zmk-pmw3610-driver
+  remote: inorichi
+  revision: main
+```
+
+### レイヤー実装の注意点
+
+#### ❌ 間違い: Conditional Layersでベースレイヤーを切り替え
+```c
+// うまく動作しないパターン
+conditional_layers {
+    mac_base {
+        if-layers = <MAC_MODE 0>;
+        then-layer = <10>;  // レイヤー10をベースレイヤーとして使う
+    };
+};
+```
+- この方法ではLED表示がおかしくなる（ピンク色など）
+- レイヤーの優先順位が不安定
+
+#### ✅ 正しい: トグルレイヤーで直接切り替え
+```c
+// Layer 4のDキー
+&tog MAC_MODE  // Layer 7をトグル
+
+// Layer 7に必要なキーだけ定義
+bindings = <
+    // 通常の文字キー
+    &kp Q  &kp W  &kp E  ...
+    // モディファイアキーだけ変更
+    &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  // Mac配置
+>;
+```
+
+### Layer-tap（lt）キーの透過設定
+
+**❌ 間違い: 上位レイヤーで全キーを定義**
+```c
+// Layer 7で全キー定義すると...
+&lt 5 G  // レイヤー0のlayer-tapが動かない！
+```
+
+**✅ 正しい: layer-tapキーは`&trans`にする**
+```c
+// Layer 7（上位レイヤー）
+bindings = <
+    &kp Q  &kp W  &kp E  &kp R  &kp T
+    &kp A  &kp S  &kp D
+    &trans  // Fキー（lt 6 F）を透過
+    &trans  // Gキー（lt 5 G）を透過 ← これでスクロールが動く
+    ...
+    &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  // モディファイアは上書き
+    &trans  &trans  &trans  // LANGUAGE_2, LANGUAGE_1, SPACEは透過
+>;
+```
+
+**ルール**:
+- **上位レイヤーで定義するのは、変更したいキーだけ**
+- **layer-tap（`lt`）を使っているキーは必ず`&trans`にする**
+- モディファイアキーだけ変更したい場合、他は全部`&trans`
+
+### モディファイアキー配置の実装
+
+**Windows/Mac切り替えで最小限の変更:**
+
+```c
+// Layer 0 (Windows)
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  // Ctrl, Win, Alt
+
+// Layer 7 (Mac) - モディファイアだけ変更
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  // Ctrl, Option, Command
+```
+
+- 他のキーは`&trans`にしてLayer 0の設定を使う
+- レイヤー1、2、3も自動的にMac配置になる（透過のため）
+
 ## トラブルシューティング
+
+### ビルドエラー: zmk_keymap_layer_activate
+```
+error: too few arguments to function 'zmk_keymap_layer_activate'
+```
+**原因**: ZMK mainブランチとPMW3610ドライバーのAPI非互換
+**解決**: `west.yml`でZMKを`v0.2.1`に固定
+
+### スクロールが効かない
+**原因**: 上位レイヤーでGキーを定義してしまい、`lt 5 G`が動かない
+**解決**: 上位レイヤーのGキーを`&trans`にする
+
+### Macモードでモディファイアキーが動かない
+**原因**: Conditional layersの設定ミス、またはLEDの色がおかしい
+**解決**: トグルレイヤー（Layer 7）に直接キー配置を定義する方式に変更
 
 ### Bluetooth接続できない
 1. `settings_reset-seeeduino_xiao_ble-zmk.uf2`を書き込み
