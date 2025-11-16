@@ -305,7 +305,8 @@
         mac-scroll {
             // -----------------------------------------------------------------------------------------
             // Mac用スクロール・タブ操作レイヤー (Conditional Layer: MAC_BASE + WIN_SCROLL)
-            // |      |     |     |     |     |                     |     | U: タブ左移動| I: タブ右移動| O: 新規タブ| P: タブ閉じる|
+            // |      |     |     |     |     |                     |     | U: タブ左移動| I: タブ右移動| O: 新規タブ | P: タブ閉じる|
+            // N: ブラウザ戻る, M: ブラウザ進む
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
             // | CTRL| CMD | OPT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | F11 |
@@ -324,9 +325,11 @@
         mac-mouse {
             // -----------------------------------------------------------------------------------------
             // Mac用マウスレイヤー (Conditional Layer: MAC_BASE + WIN_MOUSE)
+            // U: タブ左移動, I: タブ右移動, O: タブ閉じる, P: タブ閉じる
+            // N: ブラウザ戻る, M: ブラウザ進む
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(T)  &kp LG(W)
+&trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(W)  &kp LG(W)
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)           &kp MB1               &kp MB3      &kp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
