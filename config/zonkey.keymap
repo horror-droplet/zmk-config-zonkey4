@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // レイヤー定義
+
 #define BASE 0          // ベースレイヤー
 #define NUMBER 1        // 数字・記号レイヤー
 #define FUNCTION 2      // ファンクションキー・テンキー
@@ -13,6 +14,7 @@
 #define MOUSE 6         // マウスレイヤー (automouse)
 
 // その他の定義
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #define JP_DQUOTE       AT                // "
 
@@ -56,6 +58,7 @@
         compatible = "zmk,keymap";
 
         // Layer 0 (BASE): ベースレイヤー
+
         base {
             // -----------------------------------------------------------------------------------------
             // 基本レイヤー（デフォルト）
@@ -65,9 +68,9 @@
             // | CTRL | WIN | ALT |HENKAN|SPACE|MUHENKAN|       | BS | ENT |      　　　　       | DEL |
 
             bindings = <
-&kp Q           &kp W         &kp E         &kp R       &kp T                                         &kp Y      &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D         &lt 6 F     &lt 5 G      &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 4 SEMICOLON
-&kp LEFT_SHIFT  &kp Z         &kp X         &kp C       &kp V        &lt 4 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
+&kp Q           &kp W         &kp E         &kp R             &kp T                                                   &kp Y      &kp U      &kp I      &kp O    &kp P
+&kp A           &kp S         &kp D         &lt 6 F           &lt 5 G           &kp LS(LG(S))    &kp INTERNATIONAL_4  &kp H      &kp J      &kp K      &kp L    &lt 3 SEMICOLON
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C             &kp V             &lt 4 B          &kp INTERNATIONAL_5  &kp N      &kp M      &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 LANGUAGE_2  &lt 2 LANGUAGE_1  &lt 1 SPACE                           &kp SPACE  &kp ENTER                                       &kp DEL
             >;
 
@@ -77,6 +80,7 @@
         };
 
         // Layer 1 (NUMBER): 数字・記号レイヤー
+
         number {
             // -----------------------------------------------------------------------------------------
             // 数字・記号入力レイヤー（Windows/Mac共通）
@@ -96,6 +100,7 @@
         };
 
         // Layer 2 (FUNCTION): ファンクションキー・テンキーレイヤー
+
         function {
             // -----------------------------------------------------------------------------------------
             // ファンクションキー・テンキー（Windows/Mac共通）
@@ -115,6 +120,7 @@
         };
 
         // Layer 3 (NAVIGATION): ナビゲーションレイヤー
+
         navigation {
             // -----------------------------------------------------------------------------------------
             // ナビゲーションレイヤー（Windows/Mac共通）
@@ -134,6 +140,7 @@
         };
 
         // Layer 4 (BLUETOOTH): Bluetooth設定レイヤー
+
         bluetooth {
             // -----------------------------------------------------------------------------------------
             // Bluetooth設定レイヤー
@@ -143,16 +150,17 @@
             // |  CTRL    |   WIN    |   ALT    | HENKAN   |  SPACE   |MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR    &bt BT_CLR_ALL  &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans          &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans          &trans         &trans        &trans        &trans            &trans  &trans                          &trans
+&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans          &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans          &trans        &trans        &trans        &trans            &trans  &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
         };
 
         // Layer 5 (SCROLL): スクロールレイヤー
+
         scroll {
             // -----------------------------------------------------------------------------------------
             // スクロール・タブ操作レイヤー
@@ -172,6 +180,7 @@
         };
 
         // Layer 6 (MOUSE): マウスレイヤー
+
         mouse {
             // -----------------------------------------------------------------------------------------
             // マウスレイヤー (automouse自動起動)
