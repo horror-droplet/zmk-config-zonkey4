@@ -5,6 +5,7 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #define MOUSE 6
+#define MAC_MODE 7
 #define JP_DQUOTE       AT                // "
 
 &mt {
@@ -21,6 +22,18 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        mac_scroll {
+            if-layers = <MAC_MODE 5>;
+            then-layer = <8>;
+        };
+        mac_mouse {
+            if-layers = <MAC_MODE MOUSE>;
+            then-layer = <9>;
         };
     };
 
@@ -118,14 +131,14 @@
 
         BT_layer_4 {
             // -----------------------------------------------------------------------------------------
-            // | BT0 | BT1 | BT2 | BT3 | BT4 |                |  -  |  7  |  8  |  9  |  +  |
-            // |BTCLR |     |     |     |     |     |           |  /  |  4  |  5  |  6  |  *  | 
-            // |SHIFT|     |     |     |     |     |           |  0  |  1  |  2  |   3 |  .  |  =  |
+            // | BT0 | BT1 | BT2 | BT3 | BT4 |                |     |     |     |     |      |
+            // |BTCLR|BTCLR_ALL| MAC |     |     |     |      |     |     |     |     |      |
+            // |SHIFT|     |     |     |     |     |           |     |     |     |     |      |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
 &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR    &bt BT_CLR_ALL  &trans        &to 0         &to 0         &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR    &bt BT_CLR_ALL  &tog MAC_MODE &to 0         &to 0         &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans        &trans        &trans        &trans            &trans  &trans                          &trans
             >;
@@ -156,6 +169,53 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1         &mkp MB3     &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT)    &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        MAC_MODE_LAYER {
+            // -----------------------------------------------------------------------------------------
+            // Mac mode toggle layer (empty layer, used for conditional layers)
+            // このレイヤーは空ですが、ONになることでMac用のスクロール・マウスレイヤーに切り替わります
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                          &trans
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        MAC_SCROLL {
+            // -----------------------------------------------------------------------------------------
+            // Mac用スクロールレイヤー (Layer 5がMacモードで起動されるとこちらが有効になる)
+            // |      |     |     |     |     |                     |     |     |     |     |      |
+            // |      |     |     |     |     |     |           |    |     |     |     |     |      |
+            // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
+            // | CTRL| CMD | OPT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans                 &kp LS(LG(TAB))        &kp LG(TAB)           &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                 &mkp MB1               &mkp MB3              &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        MAC_MOUSE {
+            // -----------------------------------------------------------------------------------------
+            // Mac用マウスレイヤー (Layer 6がMacモードで起動されるとこちらが有効になる)
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans                 &kp LS(LG(TAB))        &kp LG(TAB)           &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)            &mkp MB1               &mkp MB3              &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)   &kp LG(RIGHT_BRACKET)  &trans                &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)           &kp LC(RIGHT)                                           &kp F11
             >;
 
             sensor-bindings = <&scroll_up_down>;
