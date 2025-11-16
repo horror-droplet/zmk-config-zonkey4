@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
-#define MOUSE 6
-#define MAC_MODE 7
+#define MOUSE 7
+#define MAC_MODE 1
 #define JP_DQUOTE       AT                // "
 
 &mt {
