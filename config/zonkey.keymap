@@ -24,11 +24,39 @@
             label = "TO_LAYER_0";
         };
 
-        toggle_mac_mode: toggle_mac_mode {
+        bt_0_win: bt_0_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &to 0>;
-            label = "TOGGLE_MAC_MODE";
+            bindings = <&macro_tap &to 0>, <&macro_pause_for_release>, <&bt BT_SEL 0>;
+            label = "BT0_WIN";
+        };
+
+        bt_1_win: bt_1_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &to 0>, <&macro_pause_for_release>, <&bt BT_SEL 1>;
+            label = "BT1_WIN";
+        };
+
+        bt_2_win: bt_2_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &to 0>, <&macro_pause_for_release>, <&bt BT_SEL 2>;
+            label = "BT2_WIN";
+        };
+
+        bt_3_win: bt_3_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &to 0>, <&macro_pause_for_release>, <&bt BT_SEL 3>;
+            label = "BT3_WIN";
+        };
+
+        bt_4_mac: bt_4_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &to 0 &to 1>, <&macro_pause_for_release>, <&bt BT_SEL 4>;
+            label = "BT4_MAC";
         };
     };
 
@@ -68,8 +96,9 @@
     keymap {
         compatible = "zmk,keymap";
 
-        win_layer_0 {
+        win_base {
             // -----------------------------------------------------------------------------------------
+            // Windows ベースレイヤー
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
             // |  A  |  S  |  D  |  F  |  G  |LS(LG(S))|        　 | - |  H  |  J   |  K  |  L  |  `  |
             // |SHIFT|  Z  |  X  |  C  |  V  |  B  |           | ; |  N  |  M   |  ,  |  .  |  /  |
@@ -87,9 +116,9 @@
                 <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        MAC_MODE_LAYER {
+        mac_base {
             // -----------------------------------------------------------------------------------------
-            // Mac用ベースレイヤー
+            // Mac ベースレイヤー
             // モディファイアキー配置: 左下から Control、Option (Alt)、Command (GUI)
             // F/Gキーは透過にして、レイヤー0のレイヤータップを使用
             // |  Q  |  W  |  E  |  R  |  T  |                        |  Y  |  U   |  I  |  O  |  P  |
@@ -109,8 +138,9 @@
                 <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        win_layer_1 {
+        win_number {
             // -----------------------------------------------------------------------------------------
+            // Windows 数字・記号レイヤー
             // | 半角/全角 |CAPS|     |     |     |                     |     |     |  -  |  ^  |  ¥  |
             // | TAB |     |     |     |     |     |              |    |     |     |     |  @  |  [  |
             // |SHIFT|     |     |     |     |     |            | 英数 | かな |     |     |     |  ]  |
@@ -126,8 +156,9 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        win_layer_2 {
+        win_function {
             // -----------------------------------------------------------------------------------------
+            // Windows ファンクションキー・テンキーレイヤー
             // |  1  |  2  |  3  |  4  |  5  |                     |  6  |  7  |  8  |  9  |   0  |
             // |      |     |     |     |     |     |           |    |     |     |     |  ↑  |      |
             // |SHIFT|     |     |     |     |     |           |     |     |     |  ←  |  ↓  |  →  |
@@ -143,8 +174,9 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        win_layer_3 {
+        win_navigation {
             // -----------------------------------------------------------------------------------------
+            // Windows ナビゲーションレイヤー
             // | F1  | F2  | F3  | F4  | F5  |                     | F6  | F7 | F8  | F9 | F10 |
             // | F11 | F12 |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |           |     |     |     |     |     |      |
@@ -160,16 +192,18 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        BT_layer_4 {
+        bluetooth {
             // -----------------------------------------------------------------------------------------
-            // | BT0 | BT1 | BT2 | BT3 | BT4 |                |     |     |     |     |      |
-            // |BTCLR|BTCLR_ALL| MAC |     |     |     |      |     |     |     |     |      |
-            // |SHIFT|     |     |     |     |     |           |     |     |     |     |      |
-            // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
+            // Bluetooth 設定レイヤー
+            // 接続先自動切り替え: BT0-BT3=Windows, BT4=Mac
+            // | BT0(Win) | BT1(Win) | BT2(Win) | BT3(Win) | BT4(Mac) |                |     |     |     |     |      |
+            // |  BT_CLR  |BT_CLR_ALL|          |          |          |     |      |     |     |     |     |     |      |
+            // |  SHIFT   |          |          |          |          |     |           |     |     |     |     |     |      |
+            // |  CTRL    |   WIN    |   ALT    | HENKAN   |  SPACE   |MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR    &bt BT_CLR_ALL  &tog MAC_MODE  &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&bt_0_win     &bt_1_win       &bt_2_win      &bt_3_win     &bt_4_mac                       &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR    &bt BT_CLR_ALL  &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans          &trans         &trans        &trans        &trans            &trans  &trans                          &trans
             >;
@@ -177,13 +211,13 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        SCROLL {
+        win_scroll {
             // -----------------------------------------------------------------------------------------
-            // Windows用スクロールレイヤー
-            // ショートカット（U, I, O）は透過にして、Mac/Win両対応はLayer 10/11で対応
+            // Windows スクロールレイヤー
+            // ショートカット（U, I, O）は透過にして、Mac用はLayer 8で対応
             // |      |     |     |     |     |                     |     |     |     |     |      |
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
-            // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
+            // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |     |      |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
@@ -196,7 +230,10 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        MOUSE {
+        win_mouse {
+            // -----------------------------------------------------------------------------------------
+            // Windows マウスレイヤー (automouse)
+
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1       &mkp MB3  &mkp MB2  &trans
@@ -207,9 +244,9 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        MAC_SCROLL {
+        mac_scroll {
             // -----------------------------------------------------------------------------------------
-            // Mac用スクロールレイヤー (Layer 5がMacモードで起動されるとこちらが有効になる)
+            // Mac スクロールレイヤー (Layer 1がONでLayer 6起動時に有効)
             // |      |     |     |     |     |                     |     |     |     |     |      |
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
@@ -225,9 +262,9 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        MAC_MOUSE {
+        mac_mouse {
             // -----------------------------------------------------------------------------------------
-            // Mac用マウスレイヤー (Layer 6がMacモードで起動されるとこちらが有効になる)
+            // Mac マウスレイヤー (Layer 1がONでLayer 7起動時に有効、automouse)
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans                &kp LS(LG(TAB))        &kp LG(TAB)  &kp LG(W)  &trans
