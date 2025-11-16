@@ -23,6 +23,13 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        toggle_mac_mode: toggle_mac_mode {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog MAC_MODE>, <&to 0>;
+            label = "TOGGLE_MAC_MODE";
+        };
     };
 
     conditional_layers {
@@ -137,10 +144,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR    &bt BT_CLR_ALL  &tog MAC_MODE &to 0         &to 0         &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans          &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans          &trans        &trans        &trans        &trans            &trans  &trans                          &trans
+&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR    &bt BT_CLR_ALL  &toggle_mac_mode &to 0         &to 0         &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans          &trans           &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans          &trans           &trans        &trans        &trans            &trans  &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
