@@ -305,13 +305,13 @@
         mac-scroll {
             // -----------------------------------------------------------------------------------------
             // Mac用スクロール・タブ操作レイヤー (Conditional Layer: MAC_BASE + WIN_SCROLL)
-            // |      |     |     |     |     |                     |     | U: Tab切替| I: タブ閉じ| O: 新規タブ|      |
+            // |      |     |     |     |     |                     |     | U: タブ左移動| I: タブ右移動| O: 新規タブ|      |
             // |      |     |     |     |     |     |           |    |     |     |     |     |      |
             // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |      |
             // | CTRL| CMD | OPT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | F11 |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans                &kp LG(TAB)        &kp LG(W)  &kp LG(T)  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(T)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &mkp MB1               &mkp MB3     &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
@@ -326,7 +326,7 @@
             // Mac用マウスレイヤー (Conditional Layer: MAC_BASE + WIN_MOUSE)
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans                &kp LG(TAB)        &kp LG(W)  &kp LG(T)  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans                &kp LC(LS(TAB))    &kp LC(TAB)  &kp LG(T)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)           &mkp MB1               &mkp MB3     &mkp MB2   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT)          &kp LC(RIGHT)                                          &kp F11
