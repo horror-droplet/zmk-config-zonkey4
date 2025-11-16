@@ -170,10 +170,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1       &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)  &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                              &kp LG(D)
+&trans  &trans  &trans  &trans  &trans                    &trans              &kp LC(LS(TAB))  &kp LC(TAB)  &kp LC(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1         &mkp MB3     &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT)        &kp LG(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -186,10 +186,10 @@
             // マウスレイヤー (automouse自動起動)
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans              &trans         &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1       &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT)  &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                              &kp LG(D)
+&trans  &trans  &trans  &trans  &trans                    &trans              &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1         &mkp MB3     &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_ARROW)  &kp LG(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
             >;
 
             sensor-bindings = <&scroll_up_down>;
