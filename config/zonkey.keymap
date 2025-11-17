@@ -174,7 +174,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                               &kp LG(HOME)        &kp LC(LS(TAB))  &kp LC(TAB)  &kp LC(W)  &kp LC(LG(LEFT))
 &trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(RIGHT))  &kp MINUS           &mkp MB1         &mkp MB3     &mkp MB2   &kp LG(LC(RIGHT))
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(LEFT))   &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(LEFT))   &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &kp HOME   &kp END
 &trans  &trans  &trans  &trans  &trans  &trans                       &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                               &kp LG(D)
             >;
 
@@ -192,7 +192,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                               &kp LG(HOME)        &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(W)  &kp LG(LC(LEFT))
 &trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(RIGHT))  &kp LG(TAB)         &mkp MB1         &mkp MB3     &mkp MB2   &kp LG(LC(RIGHT))
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(LEFT))   &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LG(LS(LEFT))   &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &kp HOME   &kp END
 &trans  &trans  &trans  &trans  &trans  &trans                       &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                               &kp LG(D)
             >;
 
