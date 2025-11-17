@@ -163,16 +163,18 @@
 
         scroll {
             // -----------------------------------------------------------------------------------------
-            // スクロール・タブ操作レイヤー
-            // |      |     |     |     |     |                     |     |     |     |     |      |
-            // |      |     |     |     |     |     |           |    |     |     |     |     |      |
-            // |SHIFT|     |     |     |     |     |          |     |     |     |     |     |     |      |
+            // スクロール・タブ操作レイヤー (Windows用)
+            // U: タブ左移動, I: タブ右移動, O: タブを閉じる
+            // N: ブラウザ戻る, M: ブラウザ進む
+            // |      |     |     |     |     |                     |     |  U  |  I  |  O  |      |
+            // |      |     |     |     |     |     |           |    |     |  J  |  K  |  L  |      |
+            // |SHIFT|     |     |     |     |     |          |     |  N  |  M  |     |     |     |      |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans              &kp LC(LS(TAB))  &kp LC(TAB)  &kp LG(W)  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans              &kp LC(LS(TAB))  &kp LC(TAB)  &kp LC(W)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans              &mkp MB1         &mkp MB3     &mkp MB2   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT)        &kp LG(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
             >;
 
@@ -183,12 +185,14 @@
 
         mouse {
             // -----------------------------------------------------------------------------------------
-            // マウスレイヤー (automouse自動起動)
+            // マウスレイヤー (automouse自動起動・Windows用)
+            // U: タブ左移動, I: タブ右移動, O: タブを閉じる
+            // H: アプリ切り替え, N: ブラウザ戻る, M: ブラウザ進む
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans              &kp LS(LC(TAB))  &kp LC(TAB)  &kp LG(W)  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(TAB)         &mkp MB1         &mkp MB3     &mkp MB2   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(LEFT_ARROW)  &kp LG(RIGHT)    &trans       &trans     &trans
+&trans  &trans  &trans  &trans  &trans                    &trans              &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(W)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(TAB)         &mkp MB1         &mkp MB3     &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LA(LEFT)        &kp LA(RIGHT)    &trans       &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &kp LG(LEFT_ARROW)  &kp LG(RIGHT)                                    &kp LG(D)
             >;
 
